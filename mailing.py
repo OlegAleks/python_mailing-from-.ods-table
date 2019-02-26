@@ -8,7 +8,7 @@ import smtplib
 from email.MIMEMultipart import MIMEMultipart
 from email.MIMEText import MIMEText
 def send_mail(fromaddr, toaddr, msg):
-	server.sendmail("olegusfox@gmail.com", toaddr, msg)
+	server.sendmail("some_login@gmail.com", toaddr, msg)
 def deunicodify(stroke):
 	if isinstance(stroke, list):
 		new_list = []
@@ -68,8 +68,8 @@ server.ehlo()
 server.starttls()
 #your App-password on google
 app_pass = 'xxxxxxxxxxxxxxxxxx' 
-server.login("olegusfox@gmail.com", app_pass)
-fromaddr = "olegusfox@gmail.com"
+server.login("some_login@gmail.com", app_pass)
+fromaddr = "some_login@gmail.com"
 i = 0
 new_info = []
 for row in info:
@@ -82,7 +82,7 @@ for row in info:
 		company = row[0]
 		person = row[1]
 		toaddr = row[2]
-		artist = "Oleg Alekseev"
+		artist = "Name Surname"
 		gender = row[3]
 		if gender != "":
 			solutation = "Dear " + gender + " %s\n\n"%(person)
@@ -92,13 +92,13 @@ for row in info:
 		msg['From'] = fromaddr
 		msg['To'] = toaddr
 		msg['Subject'] = 'FX TD Application from %s'%(artist)
-		contact_info = "%s\nSankt-Peterburg, Russian Federation\nolegusfox@gmail.com\n+7 904 639 17 32\n\n"%(artist)
+		contact_info = "%s\nSankt-Peterburg, Russian Federation\nsome_login@gmail.com\n+7 900 000 00 00\n\n"%(artist)
 		part1 = "My name is %s.\nI would like to express my interset in your position for a FX TD at %s.\n\n"%(artist,company)
 		part2 = "I have extensive knowledge of the technology used in creating visual effects and I would appreciate an opportunity to put my skills and training to work for %s.\n"%(company)
 		part3 = "My work experiance in CG starts in 2011 year at post-production studio named 'Algous'\nNow I'm working for 'Melnitsa animation studio' as Houdini FX TD.\n\n"
-		SH = "Please find my showreel at the following link: https://www.youtube.com/watch?v=K4xtXj6CRbY\n"
-		LN = "LinkedIn: https://www.linkedin.com/in/oleg-alekseev-53a2a783/\n"
-		CV = "CV: http://olegusfox.wixsite.com/alexeev-oleg/cv\n\n"
+		SH = "Please find my showreel at the following link: https://www.youtube.com/watch?v=A4xtXj6CRbY\n"
+		LN = "LinkedIn: https://www.linkedin.com/in/some-profile-53a2a783/\n"
+		CV = "CV: http://website.com/\n\n"
 		END = "Respectfully,\n%s\nFX TD"%(artist)
 		body = contact_info+solutation+part1+part2+part3+SH+LN+CV+END
 		msg.attach(MIMEText(body, 'plain'))
